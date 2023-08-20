@@ -9,7 +9,7 @@ require('./config/db')
 
 // Middleweare
 app.use(express.json());
-app.use(cors({origin: "*"}));
+app.use(cors({origin: "https://adorable-caramel-181bc6.netlify.app"}));
 
 app.get('/', (req, res) => {
   res.send('hello world')
