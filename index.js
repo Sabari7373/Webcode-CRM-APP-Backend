@@ -11,7 +11,7 @@ const jwt = require("jsonwebtoken");
 const leadsRoute = require('./routes/leadsRoute')// for leads
 const cors = require('cors');
 const corsOptions ={
-    origin:'https://crm-backend-tn5z.onrender.com/', 
+    origin:'https://webcode-crm-app-front-end.vercel.app//', 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
