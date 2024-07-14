@@ -10,11 +10,19 @@ const jwt = require("jsonwebtoken");
 
 const leadsRoute = require('./routes/leadsRoute')// for leads
 const cors = require('cors');
+
 const corsOptions ={
-    origin:'https://webcode-crm-app-front-end.vercel.app//', 
-    credentials:true,            //access-control-allow-credentials:true
+    origin:'https://webcode-crm-app-front-end.vercel.app', 
+    credentials:true,            
     optionSuccessStatus:200
 }
+
+// const corsOptions ={
+//     origin:'http://localhost:3000', 
+//     credentials:true,              //access-control-allow-credentials:true
+//     optionSuccessStatus:200
+// }
+
 app.use(cors(corsOptions));
 // Middleweare
 app.use(express.json());
@@ -59,6 +67,10 @@ app.post("/login", async (req, res) => {
       const token = jwt.sign({id:user._id}, process.env.SECRETKEY);
 
       res.send({message : "Successful", token:token,user:user.firstName});
+
+      console.log("aaaaaaaaa");
+      console.log(token);
+
     } else {
       return res.status(400).json({ message: "Login failed" });
     }
@@ -99,6 +111,7 @@ app.post("/signup", async function(req, res) {
     });
   }
 });
+
 
 
 // Create a lead 
